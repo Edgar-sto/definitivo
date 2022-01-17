@@ -1,0 +1,24 @@
+Redimencionar logotipo de carreirs
+Logo base Marcatel medidas: 200x63
+
+
+
+
+codigo para recargar div's 
+************************************************************
+ <script type="text/javascript">
+        $(document).ready(function(){
+            setInterval(
+                function(){
+                    $('#cuerpo-tabla').load('./tabla.php');
+                },3000
+            );
+        });
+
+    </script>
+************************************************************
+
+
+
+
+

@@ -1,0 +1,33 @@
+div {
+    text-align: center;
+    width: 400px;
+}
+
+ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0;
+}
+
+li, .textbox {
+    text-align: right;
+}
+
+.primero-nov {
+    grid-column-start: 1;
+}
+
+.day-name {
+    background: #eee;
+    font-weight: bold;
+    text-align: center;
+}
+
+.textbox {
+    background: none;
+    border: 0;
+    outline: none;
+    width: 20px;
+}
+

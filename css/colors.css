@@ -1,0 +1,208 @@
+/*Biblioteca de colores RGBA*/
+
+/**** MMARCATEL ****/
+.marcatel-01 {
+    background-color: #896bab;
+    /*Enero*/
+}
+
+.marcatel-02 {
+    background-color: #6b4996;
+    /*Febrero*/
+}
+
+.marcatel-03 {
+    background-color: #4c2882;
+    /*Marzo*/
+}
+
+.marcatel-04 {
+    background-color: #40236b;
+    /*Abril*/
+}
+
+.marcatel-05 {
+    background-color: #351e55;
+    /*Mayo*/
+}
+
+.marcatel-06 {
+    background-color: #2a1940;
+    /*Junio*/
+}
+
+/**** MCM ****/
+.mcm-01 {
+    background-color: #a1ca96;
+    /*Enero*/
+}
+
+.mcm-02 {
+    background-color: #81b874;
+    /*Febrero*/
+}
+
+.mcm-03 {
+    background-color: #60a753;
+    /*Marzo*/
+}
+
+.mcm-04 {
+    background-color: #337b2a;
+    /*Abril*/
+}
+
+.mcm-05 {
+    background-color: #2b6124;
+    /*Mayo*/
+}
+
+.mcm-06 {
+    background-color: #24491d;
+    /*Junio*/
+}
+
+/**** IPCOM ****/
+.ipcom-01 {
+    background-color: #5360c1;
+    /*Enero*/
+}
+
+.ipcom-02 {
+    background-color: #354aa6;
+    /*Febrero*/
+}
+
+.ipcom-03 {
+    background-color: #1145b4;
+    /*Marzo*/
+}
+
+.ipcom-04 {
+    background-color: #1a3a94;
+    /*Abril*/
+}
+
+.ipcom-05 {
+    background-color: #1d2f74;
+    /*Mayo*/
+}
+
+.ipcom-06 {
+    background-color: #1b2557;
+    /*Junio*/
+}
+
+/**** HAZ ****/
+
+.hazz-01 {
+    background-color: #ef958f;
+    /*Enero*/
+}
+
+.hazz-02 {
+    background-color: #e4706c;
+    /*Febrero*/
+}
+
+.hazz-03 {
+    background-color: #d5484c;
+    /*Marzo*/
+}
+
+.hazz-04 {
+    background-color: #a21027;
+    /*Abril*/
+}
+
+.hazz-05 {
+    background-color: #811620;
+    /*Mayo*/
+}
+
+.hazz-06 {
+    background-color: #60161a;
+    /*Junio*/
+}
+
+/**** RAPTOR ****/
+
+.raptor-01 {
+    background-color: #aeaeae;
+    /*Enero*/
+}
+
+.raptor-02 {
+    background-color: #949494;
+    /*Febrero*/
+}
+
+.raptor-03 {
+    background-color: #7b7b7b;
+    /*Marzo*/
+}
+
+.raptor-04 {
+    background-color: #525252;
+    /*Abril*/
+}
+
+.raptor-05 {
+    background-color: #424242;
+    /*Mayo*/
+}
+
+.raptor-06 {
+    background-color: #323232;
+    /*Junio*/
+}
+
+/**** ALL ****/
+
+.enero {
+    background-color: rgb(210, 69, 44);
+}
+
+.febrero {
+    background-color: rgb(210, 119, 44);
+}
+
+.marzo {
+    background-color: rgb(210, 168, 44);
+}
+
+.abril {
+    background-color: rgb(202, 210, 44);
+}
+
+.mayo {
+    background-color: rgb(102, 210, 44);
+}
+
+.junio {
+    background-color: rgb(52, 210, 44);
+}
+
+.julio {
+    background-color: rgb(44, 210, 86);
+}
+
+.agosto {
+    background-color: rgb(44, 210, 135);
+}
+
+.septiembre {
+    background-color: rgb(44, 185, 210);
+}
+
+.octubre {
+    background-color: rgb(44, 135, 210);
+}
+
+.noviembre {
+    background-color: rgb(44, 86, 210);
+}
+
+.diciembre {
+    background-color: rgb(52, 44, 210);
+}

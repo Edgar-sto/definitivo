@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 500 500"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str6 {stroke:#303030;stroke-width:5}
+    .str1 {stroke:#303030;stroke-width:10}
+    .str2 {stroke:#505050;stroke-width:20}
+    .str3 {stroke:#EBEBEB;stroke-width:7.5;stroke-dasharray:15.000000 7.500000}
+    .str4 {stroke:#EBEBEB;stroke-width:7.5;stroke-dasharray:75.000000 7.500000}
+    .str5 {stroke:#EBEBEB;stroke-width:7.5;stroke-dasharray:37.500000 22.500000 7.500000 7.500000 7.500000 22.500000}
+    .fil1 {fill:none}
+    .fil2 {fill:#505050}
+    .fil5 {fill:#A8D45D}
+    .fil4 {fill:url(#id0)}
+    .fil3 {fill:url(#id1)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="229.221" y1="126.787" x2="270.747" y2="267.516">
+   <stop offset="0" style="stop-color:#0083DB"/>
+   <stop offset="1" style="stop-color:#17A2FF"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="191.82" y1="191.455" x2="308.146" y2="308.593">
+   <stop offset="0" style="stop-color:#008EED"/>
+   <stop offset="1" style="stop-color:#005792"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil1 str1" d="M407 116l74 0m-74 53l74 0m-74 52l74 0m-74 52l74 0m-74 53l74 0m-74 52l74 0m-387 5l-73 0m73 -52l-73 0m73 -52l-73 0m73 -53l-73 0m73 -52l-73 0m73 -52l-73 0m96 -29l0 -73m52 73l0 -73m52 73l0 -73m52 73l0 -73m53 73l0 -73m52 73l0 -73m5 386l0 74m-52 -74l0 74m-52 -74l0 74m-52 -74l0 74m-53 -74l0 74m-52 -74l0 74"/>
+  <path class="fil1 str2" d="M407 122l32 0m-32 52l32 0m-32 52l32 0m-32 53l32 0m-32 52l32 0m-32 52l32 0m-317 -290l0 -32m52 32l0 -32m52 32l0 -32m53 32l0 -32m52 32l0 -32m52 32l0 -32m-289 317l-32 0m32 -52l-32 0m32 -53l-32 0m32 -52l-32 0m32 -52l-32 0m32 -53l-32 0m316 290l0 32m-52 -32l0 32m-53 -32l0 32m-52 -32l0 32m-52 -32l0 32m-52 -32l0 32"/>
+  <rect class="fil2 str1" x="93" y="93" width="313" height="314" rx="21" ry="21"/>
+  <rect class="fil3" x="111" y="111" width="277" height="278" rx="10" ry="10"/>
+  <path class="fil4" d="M122 111l256 0c6,0 11,5 11,10l0 56c-38,64 -130,106 -186,106 -56,0 -64,-7 -92,-20l0 -142c0,-5 5,-10 11,-10z"/>
+  <line class="fil1 str3" x1="137" y1="292" x2="266" y2= "292" />
+  <line class="fil1 str4" x1="302" y1="318" x2="137" y2= "318" />
+  <line class="fil1 str5" x1="137" y1="344" x2="323" y2= "344" />
+  <circle class="fil5 str6" cx="159" cy="161" r="17"/>
+ </g>
+</svg>
