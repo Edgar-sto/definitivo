@@ -1,4 +1,35 @@
-/*Biblioteca de colores RGBA*/
+/*Biblioteca de colores*/
+
+/**** 2022 ****/
+/* Color Theme Swatches in Hex */
+.mountain-1-hex { color: #68788C; }
+.mountain-2-hex { color: #979DA6; }
+.mountain-3-hex { color: #F2E205; }
+.mountain-4-hex { color: #F2EEB3; }
+.mountain-5-hex { color: #F2D64B; }
+
+/* Color Theme Swatches in RGBA */
+.mountain-1-rgba { color: rgba(103, 119, 140, 1); }
+.mountain-2-rgba { color: rgba(150, 157, 165, 1); }
+.mountain-3-rgba { color: rgba(242, 226, 4, 1); }
+.mountain-4-rgba { color: rgba(242, 238, 179, 1); }
+.mountain-5-rgba { color: rgba(242, 214, 75, 1); }
+
+/* Color Theme Swatches in Hex */
+.FALLING-BEAUTY-1-hex { color: #021826; }
+.FALLING-BEAUTY-2-hex { color: #0A3140; }
+.FALLING-BEAUTY-3-hex { color: #245C73; }
+.FALLING-BEAUTY-4-hex { color: #4B8CA6; }
+.FALLING-BEAUTY-5-hex { color: #91C4D9; }
+
+/* Color Theme Swatches in RGBA */
+.FALLING-BEAUTY-1-rgba { color: rgba(2, 24, 38, 1); }
+.FALLING-BEAUTY-2-rgba { color: rgba(10, 48, 63, 1); }
+.FALLING-BEAUTY-3-rgba { color: rgba(35, 92, 114, 1); }
+.FALLING-BEAUTY-4-rgba { color: rgba(74, 139, 165, 1); }
+.FALLING-BEAUTY-5-rgba { color: rgba(145, 196, 216, 1); }
+
+
 
 /**** MMARCATEL ****/
 .marcatel-01 {
