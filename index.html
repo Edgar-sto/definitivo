@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/vicis.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>BTN Control</title>
+    <script type="text/javascript" src="js/dom-drag.js"></script>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
     </div>
     <div class="contenedor-vicis">
         <div class="grid-container">
-            <button type="button" class="btn btn-lg btn-primary">
+            <button type="button" class="btn btn-lg btn-primary" id="example">
                 <a href="http://10.9.2.5/vicidial/realtime_report.php" target="_blank" rel="noopener noreferrer"
                     class='testbutton'>5</a>
             </button>
@@ -341,6 +342,9 @@
     <script src="assets/js/pages/dashboard.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+        Drag.init(document.getElementById("example"));
+        </script>
 </body>
 
 </html>
