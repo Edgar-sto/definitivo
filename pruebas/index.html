@@ -16,67 +16,87 @@
     <div id="chart"></div>
     <!-- Optional JavaScript -->
     <script>
-        var options = {
-            series: [76, 67, 45, 90],
+       var options = {
+          series: [44, 55, 41, 17, 15],
+          chart: {
+          type: 'donut',
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
             chart: {
-                height: 390,
-                type: 'radialBar',
+              width: 200
             },
-            plotOptions: {
-                radialBar: {
-                    offsetY: 0,
-                    startAngle: 0,
-                    endAngle: 270,
-                    hollow: {
-                        margin: 5,
-                        size: '30%',
-                        background: 'transparent',
-                        image: undefined,
-                    },
-                    dataLabels: {
-                        name: {
-                            show: false,
-                        },
-                        value: {
-                            show: false,
-                        }
-                    }
-                }
-            },
-            colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5'],
-            labels: ['Vimeo', 'Messenger', 'Facebook', 'LinkedIn'],
             legend: {
-                show: true,
-                floating: true,
-                fontSize: '16px',
-                position: 'left',
-                offsetX: 160,
-                offsetY: 15,
-                labels: {
-                    useSeriesColors: true,
-                },
-                markers: {
-                    size: 0
-                },
-                formatter: function(seriesName, opts) {
-                    return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
-                },
-                itemMargin: {
-                    vertical: 3
-                }
-            },
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    legend: {
-                        show: false
-                    }
-                }
-            }]
+              position: 'bottom'
+            }
+          }
+        }]
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+        // var options = {
+        //     series: [76, 67, 45, 90],
+        //     chart: {
+        //         height: 390,
+        //         type: 'radialBar',
+        //     },
+        //     plotOptions: {
+        //         radialBar: {
+        //             offsetY: 0,
+        //             startAngle: 0,
+        //             endAngle: 270,
+        //             hollow: {
+        //                 margin: 5,
+        //                 size: '30%',
+        //                 background: 'transparent',
+        //                 image: undefined,
+        //             },
+        //             dataLabels: {
+        //                 name: {
+        //                     show: false,
+        //                 },
+        //                 value: {
+        //                     show: false,
+        //                 }
+        //             }
+        //         }
+        //     },
+        //     colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5'],
+        //     labels: ['Vimeo', 'Messenger', 'Facebook', 'LinkedIn'],
+        //     legend: {
+        //         show: true,
+        //         floating: true,
+        //         fontSize: '16px',
+        //         position: 'left',
+        //         offsetX: 160,
+        //         offsetY: 15,
+        //         labels: {
+        //             useSeriesColors: true,
+        //         },
+        //         markers: {
+        //             size: 0
+        //         },
+        //         formatter: function(seriesName, opts) {
+        //             return seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+        //         },
+        //         itemMargin: {
+        //             vertical: 3
+        //         }
+        //     },
+        //     responsive: [{
+        //         breakpoint: 480,
+        //         options: {
+        //             legend: {
+        //                 show: false
+        //             }
+        //         }
+        //     }]
+        // };
+
+        // var chart = new ApexCharts(document.querySelector("#chart"), options);
+        // chart.render();
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

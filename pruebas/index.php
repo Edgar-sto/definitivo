@@ -18,7 +18,7 @@
 
 <body>
     <div>
-        <form id="form_obt_datos-marcatel" method="POST">
+        <form id="formulario_pruebas" method="POST">
             <table id="tbl_form_marcatel" class="table" style="background-color: rgb(114, 96, 158);">
                 <tbody class="text-center form-group">
                     <tr>
@@ -54,7 +54,7 @@
 				$.ajax({
 					url: './script.php',
 					type: 'POST',
-					data: $('#form_obt_datos-marcatel').serialize(),
+					data: $('#formulario_pruebas').serialize(),
 					beforeSend: function() {
 						$("#resultado").html("<div style='text-align:center;'><samp>Calculando registros consumidos...</samp><br><img src='../img/gif/loading.gif' ></div>");
 					},
