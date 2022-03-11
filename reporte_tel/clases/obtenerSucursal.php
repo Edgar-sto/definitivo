@@ -1,7 +1,7 @@
 <?php
 
 class sucursal
-{
+{ 
     public $conexion;
     public $nombre_grupo;
 

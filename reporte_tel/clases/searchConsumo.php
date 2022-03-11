@@ -13,13 +13,13 @@ class searchConsumo
 
     function __construct($conexion, $fecha_inicio, $fecha_termino, $prefix, $valuereporte, $valuecampania, $valuegrupos)
     {
-        $this->conexion     =   $conexion;
-        $this->f_inicio     =   $fecha_inicio;
-        $this->f_termino    =   $fecha_termino;
-        $this->prefix       =   $prefix;
-        $this->valuereporte =   $valuereporte;
-        $this->valuecampania =   $valuecampania;
-        $this->valuegrupos  =   $valuegrupos;
+        $this->conexion         =   $conexion;
+        $this->f_inicio         =   $fecha_inicio;
+        $this->f_termino        =   $fecha_termino;
+        $this->prefix           =   $prefix;
+        $this->valuereporte     =   $valuereporte;
+        $this->valuecampania    =   $valuecampania;
+        $this->valuegrupos      =   $valuegrupos;
     }
 
     function consumoMovilFijo()
