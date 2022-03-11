@@ -1,6 +1,6 @@
 <?php
-    require '../reporte_tel/clases/conexion.php';
-    $conexion   =   conexion_db_local("telefonia","127.0.0.1");
+require '../reporte_tel/clases/conexion.php';
+$conexion   =   conexion_db_local("telefonia", "127.0.0.1");
 ?>
 
 <!DOCTYPE html>
@@ -17,55 +17,56 @@
 </head>
 
 <body>
-    <div>
-        <form id="formulario_pruebas" method="POST">
-            <table id="tbl_form_marcatel" class="table" style="background-color: rgb(114, 96, 158);">
-                <tbody class="text-center form-group">
-                    <tr>
-                        <td>
-                            <select id="vicidial" name="vicidial">
-                                <?php
-                                    $query_vici="SELECT reporte FROM vicis
-                                    WHERE estado='Y';";
-                                    $ans_vicis=$conexion->query($query_vici);
-                                    while($row_vicis=$ans_vicis->fetch_object()){
-                                        $row_vicis->reporte;
-                                    ?>
-                                        <option value="<?php echo $row_vicis->reporte;?>"><?php echo $row_vicis->reporte;?></option>
-                                    <?php
-                                    }
-                                ?>
-                            </select>
-                        </td>
-                        
-                        <td>
-                            <input id="btn-marcatel" name="btn-marcatel" type="button" class="btn btn-outline-light" value="Porcesar">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-    </div>
-    <div id="resultado">
+    <form class="row g-3 needs-validation" novalidate>
 
-    </div>
-    <script>
-        $('#btn-marcatel').click(function() {
-				$.ajax({
-					url: './script.php',
-					type: 'POST',
-					data: $('#formulario_pruebas').serialize(),
-					beforeSend: function() {
-						$("#resultado").html("<div style='text-align:center;'><samp>Calculando registros consumidos...</samp><br><img src='../img/gif/loading.gif' ></div>");
-					},
-					success: function(res) {
-						$('#resultado').html(res);
-					}
-				});
-			});
-    </script>
+        <div class="col-md-3">
+            <label for="" class="form-label">Tipo</label>
+            <select class="form-select" id="internoExternoAll" name="internoExternoAll" required>
+                <option value="0">Selecciona una opcion</option>
+                <option value="i">Interno</option>
+                <option value="e">Externo</option>
+                <option value="a">All</option>
+            </select>
+        </div>
+
+        <div class="col-md-3" id="tipoCentro">
+            
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+
+
+
+
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#internoExternoAll').val('interno');
+            recargarLista();
+
+            $('#internoExternoAll').change(function(){
+                recargarLista();
+            });
+        })
+
+        function recargarLista(){
+            $.ajax({
+                type:"POST",
+                url:"script.php",
+                data:"tipo=" + $('#internoExternoAll').val(),
+                success:function(r){
+                    $('#tipoCentro').html(r);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
