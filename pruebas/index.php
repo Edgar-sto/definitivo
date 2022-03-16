@@ -62,8 +62,13 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
     </section>
     <section class="container">
         <div class="container-fluid">
-            <div id="resultado" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+
+            <div id="resultado" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}" style="height:677px;">
             </div>
+
+            <div id="resultado-dividido" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} bg-primary" style="height:350px;">
+            </div>
+
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
@@ -90,7 +95,7 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
         }
 
 
-        /****OBTENER DATOS TELEFONIA****/
+        /****seccion view data****/
         $('#buscar').click(function() {
             $.ajax({
                 url: './view/view_data.php',
@@ -101,6 +106,20 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
                 },
                 success: function(res) {
                     $('#resultado').html(res);
+                }
+            });
+        });
+        /****seccion view data carrier****/
+        $('#buscar').click(function() {
+            $.ajax({
+                url: './view/view_data_carrier.php',
+                type: 'POST',
+                data: $('#formulario').serialize(),
+                beforeSend: function() {
+                    $("#resultado-dividido").html("<div style='text-align:center;'><samp>Calculando registros esto puede tardar unos segundos...</samp><br><img src='../img/gif/loading.gif' alt='vicidial'></div>");
+                },
+                success: function(res) {
+                    $('#resultado-dividido').html(res);
                 }
             });
         });

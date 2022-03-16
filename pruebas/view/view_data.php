@@ -20,9 +20,7 @@ $fecha_termino = $_POST['fecha_termino'];
 $sucursal = $_POST['sucursal'];
 ?>
 <div class="row table-responsive table-responsive-lg">
-    <!--FILA HSBC-->
-    <h2 class="text-center fs-2 fw-bold w-100">Información General</h2>
-    <table class="table table-bordered ">
+    <table class="table table-bordered table-sm">
         <thead class="text-center align-middle">
             <tr class="table-primary ">
                 <th scope="col" rowspan="2">Fechas</th>
@@ -44,8 +42,8 @@ $sucursal = $_POST['sucursal'];
         </thead>
         <tbody>
             <?php 
-                $consumo= new Data($conexion,$fecha_inicio,$fecha_termino,prefijos_mcm,$sucursal);
-                $consumo->totalConsumido();
+                $consumo= new Data($conexion,$fecha_inicio,$fecha_termino,prefijos_mcm);
+                $consumo->totalConsumidoPorDia();
             ?>
         </tbody>
     </table>
