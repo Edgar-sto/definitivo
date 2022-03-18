@@ -19,8 +19,9 @@ $fecha_inicio = $_POST['fecha_inicio'];
 $fecha_termino = $_POST['fecha_termino'];
 $sucursal = $_POST['sucursal'];
 ?>
+<label for="floatingInputValue">Datos por día</label>
 <div class="row table-responsive table-responsive-lg">
-    <table class="table table-bordered table-sm">
+    <table class="table table-bordered table-sm table-primary">
         <thead class="text-center align-middle">
             <tr class="table-primary ">
                 <th scope="col" rowspan="2">Fechas</th>

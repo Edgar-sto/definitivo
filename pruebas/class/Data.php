@@ -41,8 +41,10 @@ class Data {
             /**Vasriable con fecha */
             $rowFecha->fecha;
             ?>
-            <tr class="table-light">
-                <td><?php echo $rowFecha->fecha;?></td>                
+            <tr>
+                <td class="table-primary">
+                    <strong><?php echo $rowFecha->fecha;?></strong>
+                </td>                
             <?php
             foreach ($all_prefijosdos as $prefijo)
             {
@@ -68,13 +70,53 @@ class Data {
                     $movil_= $rowConsumo->movil*$costo_movil;
                     $fijo_ = $rowConsumo->fijo*$costo_fijo;    
                 ?> 
-                    <td><?php echo "$" . number_format($movil_,2);?></td>
-                    <td><?php echo "$" . number_format($fijo_,2);?></td>
+                    <td class="table-light"><?php echo "$" . number_format($movil_,2);?></td>
+                    <td class="table-light"><?php echo "$" . number_format($fijo_,2);?></td>
                 <?php
                 }
             }
-            echo "<tr>";
+            ?>
+            </tr>
+            <?php
         }
+        ?>
+            <tr>
+                <td class="table-primary">
+                    <strong><?php echo $this->f_inicio . " al " . $this->f_termino;?></strong>
+                </td> 
+                <?php
+                foreach ($all_prefijosdos as $prefijo)
+                {
+                    if ($prefijo == "15','777" || $prefijo == "28','444") {
+                        $costo_movil=0.11; $costo_fijo=0.04;
+                    } if ($prefijo == "11','999") {
+                        $costo_movil=0.11; $costo_fijo=0.05;
+                    } else {
+                        $costo_movil=0.09/60; $costo_fijo=0.04/60;
+                    }
+                    $queryConsumos = "SELECT
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_inicio<='{$this->f_termino} 23:59:59'
+                    AND prefijo IN ('{$prefijo}') AND tipo IN ('movil','drop_movil','buzon_movil')) AS movil,
+
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_inicio<='{$this->f_termino} 23:59:59'
+                    AND prefijo IN ('{$prefijo}') AND tipo IN ('fijo','drop_fijo','buzon_fijo')) AS fijo;";
+                    //echo "<br>";
+                    $answerConsumo=$this->conexion->query($queryConsumos);
+                    while ($rowConsumo=$answerConsumo->fetch_object())
+                    {   
+                        $movil_= $rowConsumo->movil*$costo_movil;
+                        $fijo_ = $rowConsumo->fijo*$costo_fijo;    
+                    ?> 
+                        <td class="table-secondary"><?php echo "$" . number_format($movil_,2);?></td>
+                        <td class="table-secondary"><?php echo "$" . number_format($fijo_,2);?></td>
+                    <?php
+                    }
+                }
+            ?>
+            </tr>
+            <?php
     }
 
     public function MovilFijoPorCarrier()
