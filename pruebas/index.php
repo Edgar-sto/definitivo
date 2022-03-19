@@ -156,6 +156,20 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
                 }
             });
         });
+        /****seccion view data Centros externos****/
+        $('#buscar').click(function() {
+            $.ajax({
+                url: './view/view_sucursales_externos.php',
+                type: 'POST',
+                data: $('#formulario').serialize(),
+                beforeSend: function() {
+                    $("#resultadoCentrosExternos").html("<div style='text-align:center;'><samp>Calculando registros esto puede tardar unos segundos...</samp><br><img src='../img/gif/loading.gif' alt='vicidial'></div>");
+                },
+                success: function(res) {
+                    $('#resultadoCentrosExternos').html(res);
+                }
+            });
+        });
     </script>
 </body>
 
