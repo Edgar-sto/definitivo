@@ -88,11 +88,14 @@ class Data {
                 foreach ($all_prefijosdos as $prefijo)
                 {
                     if ($prefijo == "15','777" || $prefijo == "28','444") {
-                        $costo_movil=0.11; $costo_fijo=0.04;
+                        $costo_movil=0.11;
+                        $costo_fijo=0.04;
                     } if ($prefijo == "11','999") {
-                        $costo_movil=0.11; $costo_fijo=0.05;
+                        $costo_movil=0.11;
+                        $costo_fijo=0.05;
                     } else {
-                        $costo_movil=0.09/60; $costo_fijo=0.04/60;
+                        $costo_movil=0.09/60;
+                        $costo_fijo=0.04/60;
                     }
                     $queryConsumos = "SELECT
                     (SELECT SUM(consumo) FROM reporte_telefonia

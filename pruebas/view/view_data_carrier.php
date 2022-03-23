@@ -14,17 +14,18 @@ const all_prefijos      =   array(
 );
 $conexion = conexion_db_local("telefonia", "127.0.0.1");
 /*VARIABLES OBTENIDOS MÉTODO POST*/
-$tipo = $_POST['internoExternoAll'];
+// $tipo = $_POST['internoExternoAll'];
+// $sucursal = $_POST['sucursal'];
 $fecha_inicio = $_POST['fecha_inicio'];
 $fecha_termino = $_POST['fecha_termino'];
-$sucursal = $_POST['sucursal'];
+
 ?>
 <label for="floatingInputValue">Datos desglosados por carrier</label>
-<div class="col-lg-3 p-2">
-    <div class="row table-responsive table-responsive-lg">
+<div class="col-lg-3">
+    <div class="row table-responsive table-responsive-lg p-2">
         <table class="table table-bordered table-sm">
             <thead class="text-center align-middle">
-                <tr class="table-primary ">
+                <tr class="bg-primary text-white">
                     <th scope="col" colspan="2"><h4>Marcatel</h4></th>
                 </tr>
             </thead>
@@ -63,11 +64,11 @@ $sucursal = $_POST['sucursal'];
         </table>
     </div>
 </div>
-<div class="col-lg-3 p-2">
-    <div class="row table-responsive table-responsive-lg">
+<div class="col-lg-3">
+    <div class="row table-responsive table-responsive-lg p-2">
         <table class="table table-bordered table-sm">
             <thead class="text-center align-middle">
-                <tr class="table-primary ">
+                <tr class="bg-primary text-white">
                     <th scope="col" colspan="2"><h4>MCM</h4></th>
                 </tr>
             </thead>
@@ -106,11 +107,11 @@ $sucursal = $_POST['sucursal'];
         </table>
     </div>
 </div>
-<div class="col-lg-3 p-2">
-    <div class="row table-responsive table-responsive-lg">
+<div class="col-lg-3">
+    <div class="row table-responsive table-responsive-lg p-2">
         <table class="table table-bordered table-sm">
             <thead class="text-center align-middle">
-                <tr class="table-primary ">
+                <tr class="bg-primary text-white">
                     <th scope="col" colspan="2"><h4>Ipcom</h4></th>
                 </tr>
             </thead>
@@ -149,11 +150,11 @@ $sucursal = $_POST['sucursal'];
         </table>
     </div>
 </div>
-<div class="col-lg-3 p-2">
-    <div class="row table-responsive table-responsive-lg">
+<div class="col-lg-3">
+    <div class="row table-responsive table-responsive-lg p-2">
         <table class="table table-bordered table-sm">
             <thead class="text-center align-middle">
-                <tr class="table-primary ">
+                <tr class="bg-primary text-white">
                     <th scope="col" colspan="2"><h4>Haz</h4></th>
                 </tr>
             </thead>

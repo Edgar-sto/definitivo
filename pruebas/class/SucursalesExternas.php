@@ -13,12 +13,12 @@ class SucursalesExternas
     public function sucursalesHSBC()
     {
         $sucursalesExternasHsbc = array(
-            "ADOLF HORN "           => "HSBC-ADOLFHORN-MA','LAB-STO-AHORN-HSBC",
-            "AE CONTACT"            => "HSBC-AECONT-CDMX-MA",
-            "AGORA"                 => "HSBC_AGORA_SANTA_FE','HSBC_AGORA_LA_CALMA','HSBC-AGORA-VOCA-MA','HSBC-MCONTACT-MX-MA','HSBC-MCONTACT-GDL-MA','HSBC-JLCALL-GDL-MA','HSBC-AGO-CALMA-MA','HSBC-AGO-VALLAR-MA','HSBC-AGORA-LM-MA",
-            "ANYMACALL"             => "HSBC-ANYMAC-GDL-MA",
-            "ATI"                   => "HSBC-ATI-GDL-MA",
-            "BESTCALL"              => "HSBC-BESTCALL-GDL-MA",
+            "ADOLF HORN "           =>  "HSBC-ADOLFHORN-MA','LAB-STO-AHORN-HSBC",
+            "AE CONTACT"            =>  "HSBC-AECONT-CDMX-MA",
+            "AGORA"                 =>  "HSBC_AGORA_SANTA_FE','HSBC_AGORA_LA_CALMA','HSBC-AGORA-VOCA-MA','HSBC-MCONTACT-MX-MA','HSBC-MCONTACT-GDL-MA','HSBC-JLCALL-GDL-MA','HSBC-AGO-CALMA-MA','HSBC-AGO-VALLAR-MA','HSBC-AGORA-LM-MA",
+            "ANYMACALL"             =>  "HSBC-ANYMAC-GDL-MA",
+            "ATI"                   =>  "HSBC-ATI-GDL-MA",
+            "BESTCALL"              =>  "HSBC-BESTCALL-GDL-MA",
             "CALEM"                 =>  "HSBC-CALEM-GDL-MA",
             "CALLCITY"              =>  "HSBC-CALLCITY-GDL-MA",
             "CLOUD CDMX"            =>  "HSBC-CLOUD-CDMX-MA",
@@ -28,7 +28,7 @@ class SucursalesExternas
             "CONTACTO PUEBLA"       =>  "HSBC-CONTACTO-PUE-MA",
             "COYOACAN"              =>  "HSBC-COYOACAN','HSBC-COYOACMN-COY-MA','HSBC-COY-CDMX-MA-VAL",
             "DATAGRAM"              =>  "HSBC-DATAG-CDMX-MA",
-            "DATAHUNTER"            =>   "HSBC-DATAHUNT-PUE-MA",
+            "DATAHUNTER"            =>  "HSBC-DATAHUNT-PUE-MA",
             "DECA2"                 =>  "HSBC-DECA2",
             "ECOSYST CDMX"          =>  "HSBC-ECOSYST-CDMX-MA",
             "ERGON"                 =>  "HSBC-CENTROHISTORICO','HSBC-TEPATITLAN','HSBC-SANMIGUEL','HSBC-ERGON",
@@ -41,7 +41,7 @@ class SucursalesExternas
             "GRUPO SAIR"            =>  "HSBC-GRPSAIR-CDMX-MA",
             "IBC"                   =>  "HSBC-IBC",
             "IBLE"                  =>  "HSBC-IBLE-GDL-MA",
-            "ICONITEL"              => "HSBC-ICONITEL-GDL-MA",
+            "ICONITEL"              =>  "HSBC-ICONITEL-GDL-MA",
             "IN AND OUT"            =>  "HSBC-INAOUT-QRO-MA",
             "INTRETEN"              =>  "HSBC-INTRETENPUEBLA','HSBC-INTRETENAGUA','HSBC-INTRETEN','HSBC-INTRET-TOL-MA",
             "JABATEL"               =>  "HSBC-JABATEL','HSBC-JABATEL2-GDL-MA','HSBC-JABATEL3-GDL-MA",
@@ -68,9 +68,75 @@ class SucursalesExternas
             "TBCENTER"              =>  "HSBC-TBCENT-CDMX-MA",
             "TRIPCALL"              =>  "HSBC-TRIPCALL-QRO-MA",
             "TWONET"                =>  "HSBC-TWONET-GDL-MA",
-            "WOLRD TEL EDO MEX" =>  "HSBC-WORLD-EDOMEX-MA"
+            "WOLRD TEL EDO MEX"     =>  "HSBC-WORLD-EDOMEX-MA"
         );
-   
+        
+        $all_prefijos      =   array(
+            'Marcatel'    =>  "15','777",
+            'MCM'         =>  "11','999",
+            'Ipcom'       =>  "28','444",
+            'Haz'         =>  "14','555"
+        );
+        foreach ($sucursalesExternasHsbc AS $sucursal => $grupos)
+        {
+            ?>
+            <tr>
+                <td>
+                    <strong><?php echo $sucursal;?></strong>
+                </td>
+                <?php
+                foreach ($all_prefijos as $carrier => $prefijo)
+                {
+                    switch ($prefijo) {
+                        case "15','777": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-success";
+                            break;
+    
+                        case "28','444": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-warning";
+                            break;
+    
+                        case "11','999": $costo_movil = 0.11; $costo_fijo = 0.05; $fondodbg="bg-info";
+                            break;
+    
+                        case "14','555": $costo_movil = 0.09 / 60; $costo_fijo = 0.04 / 60; $fondodbg="bg-danger";
+                            break;
+                    }
+                    $centros_externos_hsbc =
+                    "SELECT
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='movil' AND prefijo IN ('{$prefijo}')) AS movil,
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='fijo' AND prefijo IN ('{$prefijo}')) AS fijo;";
+
+                    $resultado_centros_externos = $this->conexion->query($centros_externos_hsbc);
+                    while ($row_ = $resultado_centros_externos->fetch_object()) {
+                    $consumo_movil = $row_->movil;
+                    $consumo_fijo = $row_->fijo;
+
+                        $con_movil = $consumo_movil * $costo_movil;
+                        $con_fijo = $consumo_fijo * $costo_fijo;
+                        $total_con = $con_movil + $con_fijo;
+                        if (empty($con_movil) && empty($con_fijo)) {
+                            ?>
+                            <td class="bg-light"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="bg-light"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                            
+                        } else {
+                        ?>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                        }
+                    }
+                }
+                ?>
+            </tr>
+            <?php
+        }   
     }
 
     public function sucursalesINVEX()
@@ -87,6 +153,72 @@ class SucursalesExternas
             "SJCALL"            =>  "OPERACION-SJCALL",
             "TRIPCALL"          =>  "INVEX-TRIPCAL-QRO-MA"
         );
+        $all_prefijos      =   array(
+            'Marcatel'    =>  "15','777",
+            'MCM'         =>  "11','999",
+            'Ipcom'       =>  "28','444",
+            'Haz'         =>  "14','555"
+        );
+        foreach ($sucursalesExternasInvex AS $sucursal => $grupos)
+        {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $sucursal;?>
+                </td>
+                <?php
+                foreach ($all_prefijos as $carrier => $prefijo)
+                {
+                    switch ($prefijo) {
+                        case "15','777": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-success";
+                            break;
+    
+                        case "28','444": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-warning";
+                            break;
+    
+                        case "11','999": $costo_movil = 0.11; $costo_fijo = 0.05; $fondodbg="bg-info";
+                            break;
+    
+                        case "14','555": $costo_movil = 0.09 / 60; $costo_fijo = 0.04 / 60; $fondodbg="bg-danger";
+                            break;
+                    }
+                    $centros_externos_invex =
+                    "SELECT
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='movil' AND prefijo IN ('{$prefijo}')) AS movil,
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='fijo' AND prefijo IN ('{$prefijo}')) AS fijo;";
+
+                    $resultado_centros_externos = $this->conexion->query($centros_externos_invex);
+                    while ($row_ = $resultado_centros_externos->fetch_object()) {
+                    $consumo_movil = $row_->movil;
+                    $consumo_fijo = $row_->fijo;
+
+                        $con_movil = $consumo_movil * $costo_movil;
+                        $con_fijo = $consumo_fijo * $costo_fijo;
+                        $total_con = $con_movil + $con_fijo;
+                        if (empty($con_movil) && empty($con_fijo)) {
+                            ?>
+                            <td class="bg-light"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="bg-light"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                            
+                        } else {
+                        ?>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                        }
+                    }
+                }
+                ?>
+            </tr>
+            <?php
+        } 
     }
 
     public function sucursalesSANTANDER()
@@ -95,6 +227,73 @@ class SucursalesExternas
             "ESTRATEGICA"   =>  "SANTANDER-STO-ESTRAT",
             "SAN JUAN DEL RIO"  =>  "SANTANDER-STO-SJR"
         );
+
+        $all_prefijos      =   array(
+            'Marcatel'    =>  "15','777",
+            'MCM'         =>  "11','999",
+            'Ipcom'       =>  "28','444",
+            'Haz'         =>  "14','555"
+        );
+        foreach ($sucursalesExternasSantander AS $sucursal => $grupos)
+        {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $sucursal;?>
+                </td>
+                <?php
+                foreach ($all_prefijos as $carrier => $prefijo)
+                {
+                    switch ($prefijo) {
+                        case "15','777": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-success";
+                            break;
+    
+                        case "28','444": $costo_movil = 0.11; $costo_fijo = 0.04; $fondodbg="bg-warning";
+                            break;
+    
+                        case "11','999": $costo_movil = 0.11; $costo_fijo = 0.05; $fondodbg="bg-info";
+                            break;
+    
+                        case "14','555": $costo_movil = 0.09 / 60; $costo_fijo = 0.04 / 60; $fondodbg="bg-danger";
+                            break;
+                    }
+                    $centros_externos_invex =
+                    "SELECT
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='movil' AND prefijo IN ('{$prefijo}')) AS movil,
+                    (SELECT SUM(consumo) FROM reporte_telefonia
+                    WHERE fecha_inicio>='{$this->f_inicio} 00:00:00' AND fecha_termino<='{$this->f_termino} 23:59:59'
+                    AND grupo IN ('{$grupos}')
+                    AND tipo='fijo' AND prefijo IN ('{$prefijo}')) AS fijo;";
+
+                    $resultado_centros_externos = $this->conexion->query($centros_externos_invex);
+                    while ($row_ = $resultado_centros_externos->fetch_object()) {
+                    $consumo_movil = $row_->movil;
+                    $consumo_fijo = $row_->fijo;
+
+                        $con_movil = $consumo_movil * $costo_movil;
+                        $con_fijo = $consumo_fijo * $costo_fijo;
+                        $total_con = $con_movil + $con_fijo;
+                        if (empty($con_movil) && empty($con_fijo)) {
+                            ?>
+                            <td class="bg-light"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="bg-light"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                            
+                        } else {
+                        ?>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_movil, 2); ?></td>
+                            <td class="<?php echo $fondodbg;?>"><?php echo "$" . number_format($con_fijo, 2); ?></td>
+                        <?php
+                        }
+                    }
+                }
+                ?>
+            </tr>
+            <?php
+        } 
     }
 
     public function centrosExternosGeneral()
@@ -179,7 +378,7 @@ class SucursalesExternas
 
 
                         ?>              
-                            <div class="row bg-light border-bottom border-dark text-black">
+                            <div class="row bg-light border-bottom border-dark text-black text-left">
                                 <div class="col-sm-3 border-end border-dark fs-6 <?php echo $fondobg;?>"><label><?php echo $campanias ?></label></div>
                                 <div class="col-sm-3"><label><?php echo "$" . number_format($con_movil, 2); ?></label></div>
                                 <div class="col-sm-3"><label><?php echo "$" . number_format($con_fijo, 2); ?></label></div>
@@ -191,16 +390,7 @@ class SucursalesExternas
                     ?>
                 </div>
             </div>
-<?php
+    <?php
         }
-
-
-
-
-
-
-
-
-
     }
 }

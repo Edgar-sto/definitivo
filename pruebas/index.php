@@ -4,16 +4,32 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">  
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="../css/slate.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Document</title>
+    <style>
+        #resultadoCentrosInternos {
+            /*height: 933px;*/
+            overflow-y: scroll;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide_scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide_scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        }
+    </style>
 </head>
 
 <body style="background-color: #ffffff;">
@@ -24,8 +40,8 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
                         <table class="table table-striped table-bordered table-primary">
                             <thead class="table-active">
                                 <tr>
-                                    <th>Interno-Externo</th>
-                                    <th>Sucursal</th>
+                                    <!-- <th>Interno-Externo</th>
+                                    <th>Sucursal</th> -->
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Fín</th>
                                     <th>Buscar</th>
@@ -33,17 +49,17 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
                             </thead>
                             <tbody>
                                 <tr class="text-center">
-                                    <td>
+                                    <!-- <td>
                                         <select class="form-select" id="internoExternoAll" name="internoExternoAll" required>
                                             <option value="0">Selecciona una opcion</option>
                                             <option value="i">Interno</option>
                                             <option value="e">Externo</option>
                                             <option value="i','e">All</option>
                                         </select>
-                                    </td>
-                                    <td>
+                                    </td> -->
+                                    <!-- <td>
                                         <div id="tipoCentro"></div>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <input id="fecha_inicio" name="fecha_inicio" type="date" class="form-control" required>
                                     </td>
@@ -71,7 +87,7 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
                     <label for="floatingInputValue">Datos desglosados por carrier</label>
                 </div>
                 <hr>
-                <div id="resultadoCentrosInternos" class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} p-2">
+                <div id="resultadoCentrosInternos" class="hide_scrollbar row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|} p-2">
                     <label for="floatingInputValue">Datos por Centro Interno</label>
                 </div>
                 <hr>
@@ -159,7 +175,7 @@ $conexion   =   conexion_db_local("telefonia", "127.0.0.1");
         /****seccion view data Centros externos****/
         $('#buscar').click(function() {
             $.ajax({
-                url: './view/view_sucursales_externos.php',
+                url: './view/view_sucursales_externas.php',
                 type: 'POST',
                 data: $('#formulario').serialize(),
                 beforeSend: function() {
