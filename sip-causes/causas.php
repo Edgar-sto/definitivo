@@ -51,15 +51,6 @@ else {
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                /*$consulta   = "SELECT * FROM error_sip";
-                $res_consulta    = mysqli_query($conexion,$consulta);
-                while ($mostrar_consulta   =   mysqli_fetch_assoc($res_consulta))
-                {
-                    
-                }*/
-                //$mostrar_consulta   
-                ?>
                     <!-- Error SIP 100 -->
                     <tr>
                     <td class="rgba-stylish-strong text-white text-center" colspan="2">Causas Error</td>

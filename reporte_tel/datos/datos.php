@@ -101,7 +101,7 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                     $row_mf->movil;
                     $row_mf->fijo;
                     
-                    if ($row_grupo->grupo == 'N/A') {
+                    if ($row_grupo->grupo == 'DROP MOVIL' || $row_grupo->grupo == 'DROP FIJO' || $row_grupo->grupo == 'BUZON MOVIL' || $row_grupo->grupo == 'BUZON FIJO') {
                         
                     } else {
                         ?>
@@ -134,11 +134,11 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                 (SELECT SUM(consumo) FROM reporte_telefonia
                 WHERE fecha_inicio>='{$fecha_inicio} 00:00:00' and fecha_termino<='{$fecha_termino} 23:59:59'
                 AND tipo='drop_movil' AND reporte='{$row->reporte}' AND prefijo IN ('{$prefix}') AND campania='{$row_camp->campania}'
-                AND grupo='N/A') AS drop_movil,
+                AND grupo='DROP MOVIL') AS drop_movil,
                 (SELECT SUM(consumo) FROM reporte_telefonia
                 WHERE fecha_inicio>='{$fecha_inicio} 00:00:00' and fecha_termino<='{$fecha_termino} 23:59:59'
                 AND tipo='drop_fijo' AND reporte='{$row->reporte}' AND prefijo IN ('{$prefix}') AND campania='{$row_camp->campania}'
-                AND grupo='N/A') AS drop_fijo";
+                AND grupo='DROP FIJO') AS drop_fijo";
                     
                 $resultado_DropMF=$conexion->query($query_dmovil_dfijo);
                 while ($row_drop=$resultado_DropMF->fetch_object()) {
@@ -160,11 +160,11 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                 (SELECT SUM(consumo) FROM reporte_telefonia
                 WHERE fecha_inicio>='{$fecha_inicio} 00:00:00' and fecha_termino<='{$fecha_termino} 23:59:59'
                 AND tipo='buzon_movil' AND reporte='{$row->reporte}' AND prefijo IN ('{$prefix}') AND campania='{$row_camp->campania}'
-                AND grupo='N/A') AS buzon_movil,
+                AND grupo='BUZON MOVIL') AS buzon_movil,
                 (SELECT SUM(consumo) FROM reporte_telefonia
                 WHERE fecha_inicio>='{$fecha_inicio} 00:00:00' and fecha_termino<='{$fecha_termino} 23:59:59'
                 AND tipo='buzon_fijo' AND reporte='{$row->reporte}' AND prefijo IN ('{$prefix}') AND campania='{$row_camp->campania}'
-                AND grupo='N/A') AS buzon_fijo";
+                AND grupo='BUZON FIJO') AS buzon_fijo";
                 
                 $resultado_buzonMF=$conexion->query($query_Bmovil_bfijo);
                 while ($row_buzon=$resultado_buzonMF->fetch_object()) {
