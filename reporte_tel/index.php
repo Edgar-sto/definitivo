@@ -41,7 +41,7 @@
 					<button id="btn_ipcom_logo" class="navbar-brand btn btn-outline-light">
 						<img src="../img/logos/btn-ipcom.png" alt="Ipcom">
 					</button>
-					<button id="btn_hazz_logo" class="navbar-brand btn btn-outline-light">
+					<button id="btn_hazz_logo" class="navbar-brand btn btn-outline-dark">
 						<img src="../img/logos/btn-hazz.png" alt="Haz">
 					</button>
 					<button id="btn_voices_logo" class="navbar-brand btn btn-outline-light">

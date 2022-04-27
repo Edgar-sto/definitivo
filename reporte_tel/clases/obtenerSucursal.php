@@ -16,8 +16,8 @@ class sucursal
     }
     function obtSucursal()
     {
-        $query_obt_sucursal="SELECT sucursal,campania FROM sucursal_campania_grupo
-        WHERE nombre_grupo='{$this->grupo}';";
+        $query_obt_sucursal="SELECT sucursal,campania FROM sucu_campa_grup
+        WHERE nombre_grupo='{$this->grupo}' GROUP BY sucursal,campania;";
         $array_sucursal=array();
         $resul_query =$this->conexion->query($query_obt_sucursal);
 
