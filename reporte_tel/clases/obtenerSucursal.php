@@ -5,9 +5,6 @@ class sucursal
     public $conexion;
     public $nombre_grupo;
 
-
-
-
     function __construct($conexion, $nombre_grupo)
     {
         $this->conexion=$conexion;

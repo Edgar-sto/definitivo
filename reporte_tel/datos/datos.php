@@ -101,7 +101,9 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                     $row_mf->movil;
                     $row_mf->fijo;
                     
-                    if ($row_grupo->grupo == 'DROP MOVIL' || $row_grupo->grupo == 'DROP FIJO' || $row_grupo->grupo == 'BUZON MOVIL' || $row_grupo->grupo == 'BUZON FIJO') {
+                    // if ($row_grupo->grupo == 'DROP MOVIL' || $row_grupo->grupo == 'DROP FIJO' || $row_grupo->grupo == 'BUZON MOVIL' || $row_grupo->grupo == 'BUZON FIJO') {
+                    if ($row_grupo->grupo == 'N/A') 
+                    {
                         
                     } else {
                         ?>
