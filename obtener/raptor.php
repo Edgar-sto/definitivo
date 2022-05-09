@@ -11,8 +11,8 @@ date_default_timezone_set('America/Mexico_City');
 //}
 $conexion = conexion_tel_21('telefonia', '10.9.2.21');
 $servidores = array("22", "27", "28","39", "41", "57");
-$start_date="2022-03-01";
-$end_date="2022-03-31";
+$start_date="2022-04-01";
+$end_date="2022-04-30";
 ?>
 <table class='table table-sm table-dark'>
     <thead>
