@@ -110,8 +110,6 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                         <tr>
                             <td><?php echo $row_camp->campania; ?></td>
                             <td><?php echo $prefix; ?></td>
-
-
                             <td>
                                 <?php 
                                     $group = new sucursal($conexion,$nombre_grupo);
@@ -119,10 +117,8 @@ for ($i=0; $i < $tam_prefijo; $i++) {
                                     foreach ($group->obtSucursal() as $sucursalValue) {
                                         echo $sucursalValue." ";
                                     }
-                                ?></td>
-
-
-
+                                ?>
+                            </td>
                             <td><?php echo $row_grupo->grupo; ?></td>
                             <td></td>
                             <td><?php echo number_format($row_mf->movil);?> </td>
